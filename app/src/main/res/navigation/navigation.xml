@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/noteListFragment">
+
+    <fragment
+        android:id="@+id/noteAddFragment"
+        android:name="com.example.jeff.noteskotlin.view.NoteAddFragment"
+        android:label="note_add_fragment"
+        tools:layout="@layout/note_add_fragment" >
+        <action
+            android:id="@+id/actionAddNoteToNoteList"
+            app:destination="@id/noteListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteListFragment"
+        android:name="com.example.jeff.noteskotlin.view.NoteListFragment"
+        android:label="note_list_fragment"
+        tools:layout="@layout/note_list_fragment" >
+        <action
+            android:id="@+id/actionNoteListToNoteDetail"
+            app:destination="@id/noteDetailFragment" />
+        <action
+            android:id="@+id/actionNoteListToAddNote"
+            app:destination="@id/noteAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteDetailFragment"
+        android:name="com.example.jeff.noteskotlin.view.NoteDetailFragment"
+        android:label="note_detail_fragment"
+        tools:layout="@layout/note_detail_fragment" >
+        <action
+            android:id="@+id/actionNoteDetailToNoteList"
+            app:destination="@id/noteListFragment" />
+        <argument android:name="noteIdArgument"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>

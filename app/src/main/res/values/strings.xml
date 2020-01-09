@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NotesKotlin</string>
+    <string name="no_notes_created">No Notes Created</string>
+    <string name="description">Description</string>
+    <string name="note_title">Note Title</string>
+    <string name="completed">Completed</string>
+</resources>
