@@ -7,17 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".view.NoteListFragment">
 
-    <TextView
-        android:id="@+id/no_notes_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/no_notes_created"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="@+id/note_list_recyclerview"
-        app:layout_constraintEnd_toEndOf="@+id/note_list_recyclerview"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/note_list_recyclerview" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_note_fab"
         android:layout_width="wrap_content"
@@ -36,8 +25,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/note_list_recyclerview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

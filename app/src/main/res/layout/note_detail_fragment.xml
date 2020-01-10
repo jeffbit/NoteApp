@@ -8,12 +8,13 @@
     tools:context=".view.NoteDetailFragment">
 
     <EditText
-        android:id="@+id/note_title_et"
+        android:id="@+id/note_title_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
-        android:inputType="textPersonName"
+        android:focusable="true"
+        android:inputType="none"
         android:singleLine="false"
         android:text="@string/note_title"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -24,11 +25,12 @@
         app:layout_constraintVertical_bias="0.023" />
 
     <EditText
-        android:id="@+id/note_description_et"
+        android:id="@+id/note_description_tv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
+        android:focusable="true"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:text="@string/description"
@@ -36,30 +38,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/note_title_et"
+        app:layout_constraintTop_toBottomOf="@+id/note_title_tv"
         app:layout_constraintVertical_bias="0.02" />
 
     <CheckBox
         android:id="@+id/note_complete_cb"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/completed"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/note_description_et"
-        app:layout_constraintVertical_bias="0.03"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/note_description_tv"
+        app:layout_constraintVertical_bias="0.03" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/share_note_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
+        android:focusable="true"
         android:src="@drawable/ic_share_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.898"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.918"
-        android:focusable="true" />
+        app:layout_constraintVertical_bias="0.918" />
+
+    <Button
+        android:id="@+id/update_notes_sb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UpdateNote"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/note_complete_cb" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

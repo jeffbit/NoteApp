@@ -11,18 +11,20 @@ import com.example.jeff.noteskotlin.adapter.NoteListAdapter.NoteListViewHolder
 import com.example.jeff.noteskotlin.model.Notes
 import com.example.jeff.noteskotlin.view.NoteListFragmentDirections
 
-class NoteListAdapter(val noteList: ArrayList<Notes>) : RecyclerView.Adapter<NoteListViewHolder>() {
+class NoteListAdapter(private var noteList: List<Notes>) :
+    RecyclerView.Adapter<NoteListViewHolder>() {
+
 
     fun setNotes(notes: List<Notes>) {
-        this.noteList.clear()
-        noteList.addAll(notes)
+        this.noteList = notes
         notifyDataSetChanged()
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteListViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.note_list_item, parent, false)
+        val infalter =
+            LayoutInflater.from(parent.context)
+        val view = infalter.inflate(R.layout.note_list_item, parent, false)
 
         return NoteListViewHolder(view)
     }
@@ -37,15 +39,20 @@ class NoteListAdapter(val noteList: ArrayList<Notes>) : RecyclerView.Adapter<Not
         holder.noteDescription.text = note.description
         holder.itemView.setOnClickListener {
             //navigates to NoteDetailFragment on click and passes Note.id primary key
+            val action = NoteListFragmentDirections.actionNoteListToNoteDetail(note.id)
             Navigation.findNavController(holder.itemView)
-                .navigate(NoteListFragmentDirections.actionNoteListToNoteDetail(note.id))
+                .navigate(action)
         }
+
+
     }
 
-    class NoteListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class NoteListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val noteTitle: TextView = itemView.findViewById(R.id.item_notetitle_tv)
         val noteDescription: TextView = itemView.findViewById(R.id.item_notedescription_textview)
 
 
     }
+
+
 }
