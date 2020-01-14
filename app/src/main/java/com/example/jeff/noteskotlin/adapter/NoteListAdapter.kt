@@ -1,5 +1,6 @@
 package com.example.jeff.noteskotlin.adapter
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,8 +45,16 @@ class NoteListAdapter(private var noteList: List<Notes>) :
                 .navigate(action)
         }
 
+        if (note.completed == true) {
+            holder.noteTitle.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+            holder.noteDescription.visibility = View.GONE
+        } else {
+            holder.noteTitle.paintFlags = 0
+            holder.noteDescription.visibility = View.VISIBLE
 
+        }
     }
+
 
     inner class NoteListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val noteTitle: TextView = itemView.findViewById(R.id.item_notetitle_tv)

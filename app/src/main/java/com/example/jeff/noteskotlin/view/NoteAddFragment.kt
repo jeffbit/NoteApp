@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.example.jeff.noteskotlin.R
-import com.example.jeff.noteskotlin.model.Notes
 import com.example.jeff.noteskotlin.viewmodel.NoteAddViewModel
 import kotlinx.android.synthetic.main.note_add_fragment.*
 
@@ -30,6 +29,7 @@ class NoteAddFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(NoteAddViewModel::class.java)
 
 
+
         save_note_btn.setOnClickListener {
             saveNote()
             Navigation.findNavController(view)
@@ -47,15 +47,9 @@ class NoteAddFragment : Fragment() {
 
 
     private fun saveNote() {
-
-        val title = add_notetitle_et.text.toString()
-        val description = add_notedescription_et.text.toString()
-
-        if (title.isNotEmpty() && description.isNotEmpty()) {
-
-            viewModel.insertNote(Notes(title, description, false))
-        }
+        viewModel.saveNote(add_notetitle_et.text.toString(), add_notedescription_et.text.toString())
     }
+
 
     private fun clearNote() {
         add_notetitle_et.setText("")

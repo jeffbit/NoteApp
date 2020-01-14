@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -14,7 +13,6 @@ import com.example.jeff.noteskotlin.R
 import com.example.jeff.noteskotlin.adapter.NoteListAdapter
 import com.example.jeff.noteskotlin.viewmodel.NoteListViewModel
 import kotlinx.android.synthetic.main.note_list_fragment.*
-import kotlinx.android.synthetic.main.note_list_item.*
 
 class NoteListFragment : Fragment() {
 
@@ -40,9 +38,9 @@ class NoteListFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(NoteListViewModel::class.java)
         //inserts temp test data
 
+
         observeLiveData()
         addNote()
-
 
 
     }
@@ -62,12 +60,5 @@ class NoteListFragment : Fragment() {
         }
     }
 
-    private fun onNoteClick() {
-        note_item_constraint.setOnClickListener {
-            //            Navigation.findNavController(it)
-//                .navigate(NoteListFragmentDirections.actionNoteListToNoteDetail(it.id))
-            Toast.makeText(context, it.id, Toast.LENGTH_SHORT).show();
 
-        }
-    }
 }

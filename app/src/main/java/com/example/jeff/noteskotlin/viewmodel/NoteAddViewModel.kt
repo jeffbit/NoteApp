@@ -11,8 +11,14 @@ class NoteAddViewModel(application: Application) : AndroidViewModel(application)
     private val repository: NoteRepository = NoteRepository(application)
 
 
-    fun insertNote(notes: Notes) {
+    private fun insertNote(notes: Notes) {
         repository.insertNotes(notes)
+    }
+
+    fun saveNote(title: String, description: String) {
+        if (title.isNotEmpty() && description.isNotEmpty()) {
+            insertNote(Notes(title, description, false))
+        }
     }
 
 

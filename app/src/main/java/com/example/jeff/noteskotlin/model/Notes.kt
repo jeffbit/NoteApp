@@ -8,7 +8,7 @@ import java.util.*
 data class Notes(
     val name: String?,
     val description: String?,
-    val completed: Boolean? = false,
+    val completed: Boolean = false,
     val dateEdited: String? = Calendar.getInstance().time.toString()
 ) {
     @PrimaryKey(autoGenerate = true)
