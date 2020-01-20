@@ -19,13 +19,15 @@ class NoteDetailViewModel(application: Application) :
     AndroidViewModel(application) {
 
     private val repository: NoteRepository = NoteRepository(application)
-    private val _dataObserved = MutableLiveData<Boolean>()
+    private val _dataObserved = MutableLiveData<Boolean>(false)
     val dataObserved: LiveData<Boolean>
         get() = _dataObserved
 
 
     fun getClickedNote(id: Int): LiveData<Notes> {
+        _dataObserved.postValue(true)
         return repository.getNoteById(id)
+
 
     }
 

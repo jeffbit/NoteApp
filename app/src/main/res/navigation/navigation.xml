@@ -9,7 +9,7 @@
         android:id="@+id/noteAddFragment"
         android:name="com.example.jeff.noteskotlin.view.NoteAddFragment"
         android:label="note_add_fragment"
-        tools:layout="@layout/note_add_fragment" >
+        tools:layout="@layout/note_add_fragment">
         <action
             android:id="@+id/actionAddNoteToNoteList"
             app:destination="@id/noteListFragment" />
@@ -18,10 +18,14 @@
         android:id="@+id/noteListFragment"
         android:name="com.example.jeff.noteskotlin.view.NoteListFragment"
         android:label="note_list_fragment"
-        tools:layout="@layout/note_list_fragment" >
+        tools:layout="@layout/note_list_fragment">
         <action
             android:id="@+id/actionNoteListToNoteDetail"
-            app:destination="@id/noteDetailFragment" />
+            app:destination="@id/noteDetailFragment"
+            app:enterAnim="@anim/nav_default_pop_enter_anim" >
+            <argument android:defaultValue="0"
+                android:name="noteIdArgument" />
+        </action>
         <action
             android:id="@+id/actionNoteListToAddNote"
             app:destination="@id/noteAddFragment" />
@@ -30,12 +34,14 @@
         android:id="@+id/noteDetailFragment"
         android:name="com.example.jeff.noteskotlin.view.NoteDetailFragment"
         android:label="note_detail_fragment"
-        tools:layout="@layout/note_detail_fragment" >
+        tools:layout="@layout/note_detail_fragment">
         <action
             android:id="@+id/actionNoteDetailToNoteList"
             app:destination="@id/noteListFragment" />
-        <argument android:name="noteIdArgument"
-            app:argType="integer"
-            android:defaultValue="0" />
+        <argument
+            android:name="noteIdArgument"
+            android:defaultValue="0"
+            app:argType="integer" />
     </fragment>
+
 </navigation>

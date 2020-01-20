@@ -11,8 +11,9 @@
 
     <EditText
         android:id="@+id/add_notetitle_et"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/note_title"
@@ -22,14 +23,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.04"
+        app:layout_constraintVertical_bias="0.042"
         tools:targetApi="o" />
 
     <EditText
         android:id="@+id/add_notedescription_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
+        android:layout_margin="12dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/description"
@@ -39,33 +40,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/add_notetitle_et"
+        app:layout_constraintVertical_bias="0.029" />
 
     <Button
         android:id="@+id/save_note_btn"
-        android:layout_width="0dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="20dp"
         android:text="@string/save"
-        app:layout_constraintBottom_toTopOf="@+id/cancel_note_btn"
-        app:layout_constraintEnd_toEndOf="@+id/cancel_note_btn"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/cancel_note_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cancel_note_btn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_notedescription_et"
-        app:layout_constraintVertical_bias="0.994" />
+        app:layout_constraintVertical_bias="0.896" />
 
     <Button
         android:id="@+id/cancel_note_btn"
-        android:layout_width="226dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginBottom="64dp"
         android:text="@android:string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.203"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/save_note_btn"
+        app:layout_constraintTop_toBottomOf="@+id/add_notedescription_et"
+        app:layout_constraintVertical_bias="0.896" />
 </androidx.constraintlayout.widget.ConstraintLayout>

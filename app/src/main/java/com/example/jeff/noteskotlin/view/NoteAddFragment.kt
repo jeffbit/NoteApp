@@ -4,16 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import com.example.jeff.noteskotlin.R
+import com.example.jeff.noteskotlin.util.hideKeyBoard
 import com.example.jeff.noteskotlin.viewmodel.NoteAddViewModel
 import kotlinx.android.synthetic.main.note_add_fragment.*
 
 class NoteAddFragment : Fragment() {
 
     private lateinit var viewModel: NoteAddViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.setTitle(getString(R.string.add_note_title))
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +43,7 @@ class NoteAddFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(NoteAddFragmentDirections.actionAddNoteToNoteList())
             clearNote()
+            hideKeyBoard()
 
         }
 
@@ -42,6 +51,7 @@ class NoteAddFragment : Fragment() {
             clearNote()
             Navigation.findNavController(view)
                 .navigate(NoteAddFragmentDirections.actionAddNoteToNoteList())
+            hideKeyBoard()
         }
     }
 

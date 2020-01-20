@@ -69,7 +69,7 @@ class NoteRepository(application: Application) : CoroutineScope {
         id: Int,
         name: String?,
         description: String?,
-        completed: Boolean,
+        completed: Boolean?,
         dateEdited: String?
     ) {
         launch {
@@ -107,7 +107,7 @@ class NoteRepository(application: Application) : CoroutineScope {
         id: Int,
         name: String?,
         description: String?,
-        completed: Boolean,
+        completed: Boolean?,
         dateEdited: String?
     ) {
         withContext(Dispatchers.IO) {

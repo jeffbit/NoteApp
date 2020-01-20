@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.jeff.noteskotlin.R
-import com.example.jeff.noteskotlin.util.DETAIL_NOTE_TITLE
+import com.example.jeff.noteskotlin.util.hideKeyBoard
 import com.example.jeff.noteskotlin.viewmodel.NoteDetailViewModel
 import kotlinx.android.synthetic.main.note_detail_fragment.*
 
@@ -20,6 +20,11 @@ class NoteDetailFragment : Fragment() {
     private lateinit var viewModel: NoteDetailViewModel
     private var argumentId: Int = 0
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.setTitle(getString(R.string.note_details_title))
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +39,17 @@ class NoteDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(NoteDetailViewModel::class.java)
 
-        observeViewModel()
+        arguments?.let {
+            argumentId = NoteDetailFragmentArgs.fromBundle(it).noteIdArgument
+        }
+
+        if (viewModel.dataObserved.value == true) {
+        } else {
+            observeViewModel()
+        }
+
+
+
 
         updateNote()
         shareNote()
@@ -42,15 +57,8 @@ class NoteDetailFragment : Fragment() {
     }
 
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putString(DETAIL_NOTE_TITLE, note_title_tv.text.toString())
-    }
-
     private fun observeViewModel() {
-        arguments?.let {
-            argumentId = NoteDetailFragmentArgs.fromBundle(it).noteIdArgument
-        }
+
         viewModel.getClickedNote(argumentId).observe(this, Observer { notes ->
             notes?.let {
                 note_title_tv.setText(notes.name, TextView.BufferType.EDITABLE)
@@ -59,6 +67,8 @@ class NoteDetailFragment : Fragment() {
             }
 
         })
+        viewModel.dataObserved.value == false
+
     }
 
 
@@ -69,6 +79,7 @@ class NoteDetailFragment : Fragment() {
             val completed = checkBoxReturnValue()
             viewModel.updateNote(argumentId, name, description, completed)
             viewModel.returnToNoteList(it)
+            hideKeyBoard()
         }
     }
 
@@ -93,14 +104,6 @@ class NoteDetailFragment : Fragment() {
 
     private fun checkBoxReturnValue(): Boolean {
         return note_complete_cb.isChecked
-
-    }
-
-
-    private fun hideKeyBoard() {
-        note_description_tv.clearFocus()
-        note_title_tv.clearFocus()
-        InputMethodManager.HIDE_IMPLICIT_ONLY
 
     }
 

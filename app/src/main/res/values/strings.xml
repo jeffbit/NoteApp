@@ -5,4 +5,10 @@
     <string name="note_title">Note Title</string>
     <string name="completed">Completed</string>
     <string name="save">Save</string>
+    <string name="undo">Undo</string>
+    <string name="note_deleted">Note Deleted</string>
+    <string name="date">Date</string>
+    <string name="add_note_title">Add New Note</string>
+    <string name="notes_title">Notes</string>
+    <string name="note_details_title">Edit Note</string>
 </resources>
