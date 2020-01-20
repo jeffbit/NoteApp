@@ -22,7 +22,7 @@
 
 * [About the Project](#about-the-project)
 * [Built With](#built-with)
-* [Screenshots](#screenshots)
+* [Screenshots](#screenshot)
 * [Contact](#contact)
 
 
