@@ -11,4 +11,5 @@
     <string name="add_note_title">Add New Note</string>
     <string name="notes_title">Notes</string>
     <string name="note_details_title">Edit Note</string>
+    <string name="update_note">Update</string>
 </resources>
