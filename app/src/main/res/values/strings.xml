@@ -12,4 +12,6 @@
     <string name="notes_title">Notes</string>
     <string name="note_details_title">Edit Note</string>
     <string name="update_note">Update</string>
+    <string name="complete">Complete</string>
+    <string name="incomplete">Incomplete</string>
 </resources>

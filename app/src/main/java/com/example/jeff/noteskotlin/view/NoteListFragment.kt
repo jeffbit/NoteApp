@@ -112,9 +112,9 @@ class NoteListFragment : Fragment() {
 
     private fun toastComplete(result: Boolean): String {
         if (result) {
-            return "Complete"
+            return getString(R.string.complete)
         } else {
-            return "Incomplete"
+            return getString(R.string.incomplete)
         }
 
     }

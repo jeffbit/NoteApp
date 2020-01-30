@@ -44,7 +44,7 @@ class NoteDetailViewModel(application: Application) :
 
     fun shareNote(title: String, description: String): Intent {
         val intent = Intent(Intent.ACTION_SEND)
-        intent.setType("text/plain")
+        intent.type = "text/plain"
         intent.putExtra(DETAIL_NOTE_TITLE, title)
         intent.putExtra(DETAIL_NOTE_DESC, description)
 

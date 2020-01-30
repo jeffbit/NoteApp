@@ -5,22 +5,10 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import java.text.SimpleDateFormat
-import java.util.*
 
 const val DETAIL_NOTE_TITLE = "DETAIL NOTE TITLE"
 const val DETAIL_NOTE_DESC = "DETAIL NOTE DESC"
-const val DETAIL_NOTE_COMPLETE = "DETAIL NOTE COMPLETED"
-const val ADD_NOTE_TITLE = "ADD NOTE TITLE"
-const val ADD_NOTE_DESC = "ADD NOTE DESC"
 
-
-fun convertDateToString(date: String): String {
-    val month_date = SimpleDateFormat("MM yyyy", Locale.ENGLISH)
-    val formatedDate = month_date.format(date)
-    return formatedDate
-
-}
 
 fun AppCompatActivity.closeKeyBoard() {
     val view = this.currentFocus

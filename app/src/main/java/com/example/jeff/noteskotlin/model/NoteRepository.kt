@@ -59,12 +59,6 @@ class NoteRepository(application: Application) : CoroutineScope {
         }
     }
 
-    fun updateNote(notes: Notes) {
-        launch {
-            updateNoteBG(notes)
-        }
-    }
-
     fun updateNoteById(
         id: Int,
         name: String?,
@@ -112,12 +106,6 @@ class NoteRepository(application: Application) : CoroutineScope {
     ) {
         withContext(Dispatchers.IO) {
             noteDao.updateNoteById(id, name, description, completed, dateEdited)
-        }
-    }
-
-    private suspend fun updateNoteBG(notes: Notes) {
-        withContext(Dispatchers.IO) {
-            noteDao.updateNote(notes)
         }
     }
 

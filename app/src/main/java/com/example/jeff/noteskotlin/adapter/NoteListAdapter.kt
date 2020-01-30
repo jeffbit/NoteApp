@@ -71,7 +71,7 @@ class NoteListAdapter(
 
     private fun noteCompleted(note: Notes, holder: NoteListViewHolder) {
 
-        if (note.completed == true) {
+        if (note.completed) {
             holder.noteTitle.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             holder.noteDescription.visibility = View.GONE
         } else {

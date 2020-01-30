@@ -48,9 +48,6 @@ class NoteDetailFragment : Fragment() {
             observeViewModel()
         }
 
-
-
-
         updateNote()
         shareNote()
 
@@ -58,7 +55,6 @@ class NoteDetailFragment : Fragment() {
 
 
     private fun observeViewModel() {
-
         viewModel.getClickedNote(argumentId).observe(this, Observer { notes ->
             notes?.let {
                 note_title_tv.setText(notes.name, TextView.BufferType.EDITABLE)

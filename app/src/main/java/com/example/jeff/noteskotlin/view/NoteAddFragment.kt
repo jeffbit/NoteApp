@@ -57,7 +57,10 @@ class NoteAddFragment : Fragment() {
 
 
     private fun saveNote() {
-        viewModel.saveNote(add_notetitle_et.text.toString(), add_notedescription_et.text.toString())
+        viewModel.saveNote(
+            add_notetitle_et.text.toString(),
+            add_notedescription_et.text.toString()
+        )
     }
 
 
