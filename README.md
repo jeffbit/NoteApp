@@ -36,14 +36,14 @@ The application uses livedata to observe changes in users data displayed through
 Application consists of 1 activity with 3 fragments. 
 
 <p align= "center">
-    <img src="https://github.com/jeffbit/NoteApp/blob/master/Note%20Application%20Screenshots/note_listview.png" alt="List view" width="240" height="480">
-    <img src="https://github.com/jeffbit/NoteApp/blob/master/Note%20Application%20Screenshots/note_updateview.png" alt="Update view" width="240" height="480">
-    <img src="https://github.com/jeffbit/NoteApp/blob/master/Note%20Application%20Screenshots/note_addview.png" alt="Add note view" width="240" height="480">
+    <img src="https://github.com/jeffbit/NoteApp/blob/master/screenshots/note_listview.png" alt="List view" width="240" height="480">
+    <img src="https://github.com/jeffbit/NoteApp/blob/master/screenshots/note_updateview.png" alt="Update view" width="240" height="480">
+    <img src="https://github.com/jeffbit/NoteApp/blob/master/screenshots/note_addview.png" alt="Add note view" width="240" height="480">
 </p>
 <p  align= "center">
-    <img src="https://github.com/jeffbit/NoteApp/blob/master/Note%20Application%20Screenshots/note_clicktodetail.gif" alt="Note click to detail" width="240" height="480">
-<img src="https://github.com/jeffbit/NoteApp/blob/master/Note%20Application%20Screenshots/note_markcomplete.gif" alt="Note marked complete" width="240" height="480">
-    <img src="https://github.com/jeffbit/NoteApp/blob/master/Note%20Application%20Screenshots/note_slidetodelete.gif" alt="Slide to delete note" width="240" height="480">
+    <img src="https://github.com/jeffbit/NoteApp/blob/master/screenshots/note_clicktodetail.gif" alt="Note click to detail" width="240" height="480">
+<img src="https://github.com/jeffbit/NoteApp/blob/master/screenshots/note_markcomplete.gif" alt="Note marked complete" width="240" height="480">
+    <img src="https://github.com/jeffbit/NoteApp/blob/master/screenshots/note_slidetodelete.gif" alt="Slide to delete note" width="240" height="480">
 </p>
 
 
