@@ -2,7 +2,7 @@
   <h3 align="center">Note Application</h3>
 
   <p align="center">
-    Android Note applicaiton built using Kotlin and Jetpack libraries.
+    Android Note application built using Kotlin and Jetpack libraries.
     <br />
     <a href="https://github.com/jeffbit/NoteApp"><strong>Explore the docs »</strong></a>
     <br />
