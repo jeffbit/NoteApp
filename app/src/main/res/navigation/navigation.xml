@@ -2,7 +2,6 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation"
     app:startDestination="@id/noteListFragment">
 
     <fragment
@@ -22,9 +21,10 @@
         <action
             android:id="@+id/actionNoteListToNoteDetail"
             app:destination="@id/noteDetailFragment"
-            app:enterAnim="@anim/nav_default_pop_enter_anim" >
-            <argument android:defaultValue="0"
-                android:name="noteIdArgument" />
+            app:enterAnim="@anim/nav_default_pop_enter_anim">
+            <argument
+                android:name="noteIdArgument"
+                android:defaultValue="0" />
         </action>
         <action
             android:id="@+id/actionNoteListToAddNote"

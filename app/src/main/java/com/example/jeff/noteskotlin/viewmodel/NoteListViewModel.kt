@@ -40,36 +40,14 @@ class NoteListViewModel(application: Application) : AndroidViewModel(application
         _recentlyDeletedNote.value = null
     }
 
-    fun setClickedNote(notes: Notes) {
-        _noteClicked.value = notes
-    }
-
-    fun clearClickedNote() {
-        _noteClicked.value = null
-    }
 
     fun getNotes() = repository.retrieveNotesDesc()
 
-
-    fun deleteNoteById(id: Int) {
-        repository.deleteNoteById(id)
-    }
 
     fun deleteNote(notes: Notes) {
         repository.deleteNote(notes)
     }
 
-    fun deleteAll() {
-        repository.deleteAllNotes()
-    }
-
-    fun deleteAllNotes() {
-        repository.deleteAllNotes()
-    }
-
-    fun returnSelectedNoteId(position: Int): Int {
-        return getNotes().value?.get(position)?.id!!
-    }
 
     fun insertNote(notes: Notes) {
         repository.insertNotes(notes)

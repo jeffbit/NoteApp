@@ -1,5 +1,6 @@
 package com.example.jeff.noteskotlin.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.Navigation
 import com.example.jeff.noteskotlin.R
 import com.example.jeff.noteskotlin.util.hideKeyBoard
 import com.example.jeff.noteskotlin.viewmodel.NoteDetailViewModel
@@ -22,7 +24,7 @@ class NoteDetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.setTitle(getString(R.string.note_details_title))
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.note_details_title)
 
     }
 
@@ -31,8 +33,7 @@ class NoteDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.note_detail_fragment, container, false)
-        return view
+        return inflater.inflate(R.layout.note_detail_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,8 +44,7 @@ class NoteDetailFragment : Fragment() {
             argumentId = NoteDetailFragmentArgs.fromBundle(it).noteIdArgument
         }
 
-        if (viewModel.dataObserved.value == true) {
-        } else {
+        if (viewModel.dataObserved.value != true) {
             observeViewModel()
         }
 
@@ -63,7 +63,6 @@ class NoteDetailFragment : Fragment() {
             }
 
         })
-        viewModel.dataObserved.value == false
 
     }
 
@@ -74,7 +73,7 @@ class NoteDetailFragment : Fragment() {
             val description = note_description_tv.text.toString()
             val completed = checkBoxReturnValue()
             viewModel.updateNote(argumentId, name, description, completed)
-            viewModel.returnToNoteList(it)
+            returnToNoteList(it)
             hideKeyBoard()
         }
     }
@@ -83,15 +82,19 @@ class NoteDetailFragment : Fragment() {
     private fun shareNote() {
         share_note_fab.setOnClickListener {
 
-            startActivity(
-                viewModel.shareNote(
-                    note_title_tv.text.toString(),
-                    note_description_tv.text.toString()
-                )
+            shareNote(
+                note_title_tv.text.toString(),
+                note_description_tv.text.toString()
             )
         }
 
     }
+
+    private fun returnToNoteList(view: View) {
+        val action = NoteDetailFragmentDirections.actionNoteDetailToNoteList()
+        Navigation.findNavController(view).navigate(action)
+    }
+
 
     private fun checkboxClicked(value: Boolean) {
         note_complete_cb.isChecked = value
@@ -100,6 +103,18 @@ class NoteDetailFragment : Fragment() {
 
     private fun checkBoxReturnValue(): Boolean {
         return note_complete_cb.isChecked
+
+    }
+
+    private fun shareNote(title: String, description: String) {
+        val intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, getString(R.string.share_intent, title, description))
+        }
+
+        val shareIntent = Intent.createChooser(intent, null)
+        startActivity(shareIntent)
 
     }
 

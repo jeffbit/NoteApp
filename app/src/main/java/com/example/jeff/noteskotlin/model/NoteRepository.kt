@@ -47,18 +47,6 @@ class NoteRepository(application: Application) : CoroutineScope {
         }
     }
 
-    fun deleteNoteById(id: Int) {
-        launch {
-            deleteNoteByIdBG(id)
-        }
-    }
-
-    fun deleteAllNotes() {
-        launch {
-            deleteAllNotesBG()
-        }
-    }
-
     fun updateNoteById(
         id: Int,
         name: String?,
@@ -85,17 +73,6 @@ class NoteRepository(application: Application) : CoroutineScope {
         }
     }
 
-    private suspend fun deleteNoteByIdBG(id: Int) {
-        withContext(Dispatchers.IO) {
-            noteDao.deleteNoteById(id)
-        }
-    }
-
-    private suspend fun deleteAllNotesBG() {
-        withContext(Dispatchers.IO) {
-            noteDao.deleteAllNotes()
-        }
-    }
 
     private suspend fun updateNotesByIdBG(
         id: Int,

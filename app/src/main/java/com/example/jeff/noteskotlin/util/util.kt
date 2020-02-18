@@ -6,8 +6,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
-const val DETAIL_NOTE_TITLE = "DETAIL NOTE TITLE"
-const val DETAIL_NOTE_DESC = "DETAIL NOTE DESC"
 
 
 fun AppCompatActivity.closeKeyBoard() {
@@ -28,3 +26,8 @@ fun Fragment.hideKeyBoard() {
         activity.closeKeyBoard()
     }
 }
+
+
+
+
+

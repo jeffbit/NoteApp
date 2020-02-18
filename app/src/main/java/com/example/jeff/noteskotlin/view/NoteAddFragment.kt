@@ -19,7 +19,7 @@ class NoteAddFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.setTitle(getString(R.string.add_note_title))
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.add_note_title)
 
     }
 

@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit
 @RunWith(AndroidJUnit4ClassRunner::class)
 class NoteDatabaseTest {
 
-    lateinit var db: NoteDatabase
+    private lateinit var db: NoteDatabase
     private var noteDao: NoteDao? = null
 
     @get:Rule

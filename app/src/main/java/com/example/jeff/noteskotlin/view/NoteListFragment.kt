@@ -27,21 +27,15 @@ import java.util.*
 class NoteListFragment : Fragment() {
 
 
-    private val NOTE_LIST_FRAG: String = "NOTELISTFRAGMENT"
     private lateinit var viewModel: NoteListViewModel
     private lateinit var noteListAdapter: NoteListAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.note_list_fragment, container, false)
-        (activity as AppCompatActivity).supportActionBar?.setTitle(getString(R.string.notes_title))
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.notes_title)
         return view
     }
 
@@ -106,15 +100,15 @@ class NoteListFragment : Fragment() {
         )
 
 
-        Toast.makeText(context, "Note marked: ${toastComplete(result)}", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Note marked: ${toastComplete(result)}", Toast.LENGTH_SHORT).show()
         return true
     }
 
     private fun toastComplete(result: Boolean): String {
-        if (result) {
-            return getString(R.string.complete)
+        return if (result) {
+            getString(R.string.complete)
         } else {
-            return getString(R.string.incomplete)
+            getString(R.string.incomplete)
         }
 
     }
@@ -146,7 +140,7 @@ class NoteListFragment : Fragment() {
             getString(R.string.note_deleted),
             Snackbar.LENGTH_SHORT
         )
-        snackbar.setAction(R.string.undo, View.OnClickListener { undoDelete(note) })
+        snackbar.setAction(R.string.undo, { undoDelete(note) })
         snackbar.show()
         viewModel.clearRecentlyDeletedNote()
     }
