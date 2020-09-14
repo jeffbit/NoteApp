@@ -66,7 +66,7 @@ Application consists of 1 activity with 3 fragments.
 
 
 
-<!--- SCREENSHOTS -->
+<!--- SCREENSHOTS ------------------------------------>
 ## Screenshot
 [Project Screenshots](https://github.com/jeffbit/NoteApp/tree/master/Note%20Application%20Screenshots)
 
@@ -76,7 +76,7 @@ Application consists of 1 activity with 3 fragments.
 
 
 
-<!-- CONTACT -->
+<!-- CONTACT ----------------------------------->
 ## Contact
 
 Project Link: [https://github.com/jeffbit/NoteApp](https://github.com/jeffbit/NoteApp)
@@ -91,7 +91,7 @@ Linkedin : [https://www.linkedin.com/in/jeffreydylanbrown/](https://www.linkedin
 
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
+<!-- MARKDOWN LINKS & IMAGES -------------------------------------------------------------------------------------------------------------------------------->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [linkedin-url]: https://linkedin.com/in/jeffreydylanbrown
 [screenshots]: https://github.com/jeffbit/NoteApp/tree/master/Note%20Application%20Screenshots
